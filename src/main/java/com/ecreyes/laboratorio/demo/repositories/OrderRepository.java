@@ -11,4 +11,7 @@ import java.util.List;
 public interface OrderRepository extends CrudRepository<Order,Long> {
     @Query("SELECT o FROM Order o where o.client.idClient = :idclient")
     List<Order> getOrdersByIdClient( @Param("idclient") long idclient);
+    
+    List<Order> getOrderByDescription(@Param("description") String description);
+    
 }
