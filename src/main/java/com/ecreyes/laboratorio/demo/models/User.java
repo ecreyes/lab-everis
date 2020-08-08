@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Table(name="user_table")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,7 +15,7 @@ public class User {
     private String password;
 
     @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(name = "rol_user", joinColumns =  @JoinColumn(name ="idUser") , inverseJoinColumns = @JoinColumn(name = "idRole") )
+    @JoinTable(name = "role_user", joinColumns =  @JoinColumn(name ="idUser") , inverseJoinColumns = @JoinColumn(name = "idRole") )
     private Set<Role> roles = new HashSet<Role>(0);
 
     public User(){}
